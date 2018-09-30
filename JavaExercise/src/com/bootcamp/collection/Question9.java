@@ -2,16 +2,28 @@
  * */
 package com.bootcamp.collection;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+import java.util.TimeZone;
 
 public class Question9 {
     public static void main(String[] args) {
-//        Date d1 = new Date();
-//        System.out.println("today is " + d1.toString());
-//        Locale locItalian = new Locale("it", "ch");
-//        DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, locItalian);
-//        System.out.println("today is in Italian Language  in Switzerland Format : " + df.format(d1));
+
+        SimpleDateFormat indsdf = new SimpleDateFormat("dd/MM/yyyy zZ HH:mm:ss a");
+        SimpleDateFormat usasdf = new SimpleDateFormat("MM/dd/yyyy zZ HH:mm:ss a");
+        SimpleDateFormat paksdf = new SimpleDateFormat("yyyy-MM-dd zZ HH:mm:ss a");
+
+        TimeZone ind = TimeZone.getTimeZone("Asia/Kolkata");
+        TimeZone usa = TimeZone.getTimeZone("US/Central");
+        TimeZone pakistan = TimeZone.getTimeZone("Asia/Karachi");
+
+        indsdf.setTimeZone(ind);
+        usasdf.setTimeZone(usa);
+        paksdf.setTimeZone(pakistan);
+
+        System.out.println("India Time format " + indsdf.format(new Date()));
+        System.out.println("USA time format " + usasdf.format(new Date()));
+        System.out.println("Pak time format " + paksdf.format(new Date()));
+
     }
 }
