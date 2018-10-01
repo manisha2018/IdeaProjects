@@ -6,7 +6,7 @@ import java.io.*;
 public class Question8 {
     public static void main(String[] args) throws IOException {
 
-        BufferedOutputStream bufferedOutputStream=new BufferedOutputStream(
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
                 new FileOutputStream("/tmp/abc.txt")
         );
 
@@ -14,12 +14,12 @@ public class Question8 {
         bufferedOutputStream.flush();
         bufferedOutputStream.close();
 
-        BufferedInputStream bufferedInputStream=new BufferedInputStream(
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(
                 new FileInputStream("/tmp/abc.txt"));
 
-        int i=0;
-        while ((i= bufferedInputStream.read())!=-1){
-            System.out.println((char)i);
+        int i = 0;
+        while ((i = bufferedInputStream.read()) != -1) {
+            System.out.println((char) i);
         }
     }
 }

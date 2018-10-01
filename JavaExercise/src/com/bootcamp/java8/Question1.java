@@ -17,30 +17,26 @@
 package com.bootcamp.java8;
 
 @FunctionalInterface
-interface Calculation<T, R, P> {
-    T operation(R a, P b);
-//    default T operation2(R c){
-//        System.out.println("hey");
-//
-//    }
-
-
-    //    default void printMe(String s){
-//        System.out.println(s);
-//    }
+interface Calculation1<T, R, P> {
+    T operation1(R a, P b);
+}
+@FunctionalInterface
+interface Calculation2<T,R>{
+    T operation2(R r);
 }
     class Question1 {
         public static void main(String[] args) {
-            Calculation<Boolean, Integer, Integer> greater = (a, b) -> (a > b) ? true : false;
-            Calculation<String, String, String> concatenate = (a, b) -> a.concat(b);
+            Calculation1<Boolean, Integer, Integer> greater = (a, b) -> (a > b) ? true : false;
+            Calculation1<String, String, String> concatenate = (a, b) -> a.concat(b);
+            System.out.println("First Number is greater than second number or not:"
+                                                    +greater.operation1(5, 6));
+            System.out.println("Concatenation:"
+                            +concatenate.operation1("Manisha", "Goyal"));
 
-
-//        Calculation<Integer,Integer> increement= a->a++;
-//        increement.operation2(a);
-
-            System.out.println(greater.operation(5, 6));
-            System.out.println(concatenate.operation("Manisha", "Goyal"));
-
+            Calculation2<Integer,Integer> increement = a->a+1;
+            Calculation2<String,String> uppercase = a->a.toUpperCase();
+            System.out.println("Increement number by one :"+increement.operation2(2));
+            System.out.println("String in Uppercase:"+uppercase.operation2("abc"));
 
         }
     }
