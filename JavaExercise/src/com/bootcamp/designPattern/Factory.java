@@ -1,11 +1,11 @@
 //Implement Factory Pattern to get the Polygon of differnt type.
 package com.bootcamp.designPattern;
 
-interface PolygonType {
+interface Polygon {
     void polygonType();
 }
 
-class Hexagon implements PolygonType {
+class Hexagon implements Polygon {
 
     private Integer side;
 
@@ -13,9 +13,9 @@ class Hexagon implements PolygonType {
         return side;
     }
 
-    public Integer setSide(Integer side) {
+    public void setSide(Integer side) {
         this.side = side;
-        return side * side * side;
+
     }
 
     @Override
@@ -31,7 +31,7 @@ class Hexagon implements PolygonType {
     }
 }
 
-class Rectangle implements PolygonType {
+class Rectangle implements Polygon {
 
     @Override
     public void polygonType() {
@@ -39,7 +39,7 @@ class Rectangle implements PolygonType {
     }
 }
 
-class Pentagon implements PolygonType {
+class Pentagon implements Polygon {
 
     @Override
     public void polygonType() {
@@ -47,32 +47,21 @@ class Pentagon implements PolygonType {
     }
 }
 
-class Polygon {
-    private PolygonType polygonType;
-
-    public PolygonType getPolygonType() {
-        return polygonType;
-    }
-
-    public void setPolygonType(PolygonType polygonType) {
-        this.polygonType = polygonType;
-    }
-}
 
 class PolygonFactory {
 
     static Polygon getPolygonObject(String name) {
-        Polygon polygon = new Polygon();
+        Polygon polygon = null;
         switch (name) {
             case "hexagonPolygon":
-                polygon.setPolygonType(new Hexagon());
+                polygon = new Hexagon();
 
                 break;
             case "rectananglePolygon":
-                polygon.setPolygonType(new Rectangle());
+                polygon = new Rectangle();
                 break;
             case "pentagonPolygon":
-                polygon.setPolygonType(new Pentagon());
+                polygon = new Pentagon();
                 break;
         }
         return polygon;
@@ -87,11 +76,10 @@ class PolygonFactory {
 
 public class Factory {
     public static void main(String[] args) {
-        //TODO:Need to ask about the below statement.
+
         Polygon hexagonPolygon = PolygonFactory.getPolygonObject("hexagonPolygon");
-        hexagonPolygon.getPolygonType().polygonType();
-        // System.out.println("Area of Hexagon is"+trianglePolygon.getPolygonType().);
-        //TODO:why is giving hashcode value.
-        System.out.println(PolygonFactory.getPolygonObject("rectanglePolygon"));
+        hexagonPolygon.polygonType();
+        PolygonFactory.getPolygonObject("hexagonPolygon").polygonType();
+
     }
 }
