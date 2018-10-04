@@ -17,7 +17,7 @@ class Demo implements Serializable {
 public class Question7 {
     public static void main(String[] args) {
         Demo object = new Demo(3028, "Manisha");
-        String path = "/home/manisha/desktop/testserialization.txt";
+        String path = "/home/manisha/Desktop/testserialization.txt";
         try {
             FileOutputStream file = new FileOutputStream(path);
             ObjectOutputStream out = new ObjectOutputStream(file);
