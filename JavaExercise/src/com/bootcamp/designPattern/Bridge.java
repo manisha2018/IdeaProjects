@@ -3,80 +3,57 @@ such that Shape and Color can be combined together
  e.g BlueSquare, RedSquare, PinkTriangle etc.
 * */
 
-//TODO:Not Completed
 package com.bootcamp.designPattern;
 
-//Implementor
-interface ColorStore {
-    String getColorType();
+interface Color {
+    void fillColor();
 }
 
-//Concrete Implementor
-class Fill implements ColorStore {
-
-    String color;
-
-    public String getColor() {
-        return color;
-    }
-
-    public String setColor(String color) {
-        this.color = color;
-        return color;
-    }
+class Red implements Color {
 
     @Override
-    public String getColorType() {
-        return "blue";
-        //return setColor(String color);
+    public void fillColor() {
+        System.out.println("Red color");
+
     }
 }
 
-//Abstraction
+class Blue implements Color {
+
+    @Override
+    public void fillColor() {
+        System.out.println("Blue color");
+
+    }
+}
+
 abstract class Shape {
-    private String type;
-    private ColorStore colorStore;
 
-    public Shape(String type, ColorStore colorStore) {
-        this.type = type;
-        this.colorStore = colorStore;
+    Color color;
+
+    public Shape(Color color) {
+        this.color = color;
     }
+
+    abstract void calculateArea();
 }
 
-//Refined Abstraction
-class Triangle extends Shape {
-    private String sides;
+class Circle extends Shape {
 
-    public Triangle(ColorStore colorStore, String sides) {
-        super("Equilateral Triangle", colorStore);
-        this.sides = sides;
+    public Circle(Color color) {
+        super(color);
     }
 
     @Override
-    public String toString() {
-        return "Triangle{" +
-                "sides='" + sides + '\'' +
-                '}';
-    }
-}
-
-//Refined Abstraction
-class Square extends Shape {
-    private String sides;
-
-    public Square(ColorStore colorStore, String sides) {
-        super("Four Side Square", colorStore);
-        this.sides = sides;
-    }
-
-    @Override
-    public String toString() {
-        return "Square{" +
-                "sides='" + sides + '\'' +
-                '}';
+    void calculateArea() {
+        System.out.println("3.14*r*r");
     }
 }
 
 public class Bridge {
-    // Triangle triangle=new Triangle(new Fill().getColorType("blue"),"Equilateral Triangle");
+    public static void main(String[] args) {
+        Shape shape = new Circle(new Red());
+        shape.calculateArea();
+        shape.color.fillColor();
+    }
 }
