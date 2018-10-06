@@ -1,2 +1,8 @@
 **/out
 **/.idea
+
+#Ignore gradle folder
+.gradle
+
+#Ignore the build folders
+/build/
