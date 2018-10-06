@@ -5,4 +5,4 @@
 .gradle
 
 #Ignore the build folders
-/build/
+*/build/
