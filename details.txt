@@ -1,0 +1,49 @@
+LINKS:
+https://guides.gradle.org/creating-multi-project-builds/
+https://www.baeldung.com/gradle-fat-jar
+
+Q1) Created file structure and created the jar(1.0-SNAPSHOT)
+->Specification of file path is provided for which jar is to be created in build.gradle
+->gradle jar
+->java -jar JAR_NAME
+
+Q2) followed Q-1 concept,only difference is: (1.0.2-SNAPSHOT)
+		Provided two source path
+	sourceSets {
+   	 main {
+      	  java {
+            srcDirs = ['src/main/java', 'src/main/java2']
+       }
+   }
+
+Q3) Created files in resources(1.0.3-SNAPSHOT)
+	add source
+	while creating jar exclude file1.txt
+
+	sourceSets {
+	    main {
+		resources {
+		    srcDirs = ['src/main/resources']
+		    exclude 'file1.txt'
+		}
+	    }
+	}
+	jar {
+	      manifest {
+		into 'resources', {
+		    from 'resources'
+		   }
+	    }
+	}
+
+4)	Refer jar(1.0.4-SNAPSHOT)
+	Add dependency of "commons-lang3"
+	Used this in any java class
+	Created jar and then while extracting jar,jar folder will contain the commons-lang3 class file as well.
+
+5) Added jcenter() in repositories{}
+ 
+6) Created mytasks.gradle
+   apply from:'mytasks.gradle'
+*************************************************************************************
+
