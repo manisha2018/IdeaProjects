@@ -8,5 +8,8 @@ public class RestaurantMain {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AnnotationConfig.class);
         Restaurant restaurant = applicationContext.getBean(Restaurant.class);
         restaurant.getHotDrink().prepareHotDrink();
+
+        Restaurant restaurant1 = applicationContext.getBean(Restaurant.class);
+
     }
 }
