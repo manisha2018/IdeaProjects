@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Set the scope of the teaRestaurant bean as proptotype
+    and check the scope type after accessing the bean.-->
+    <bean id="tea" class="com.bootcamp.restro.Tea" scope="prototype"/>
+    <bean id="expressTea" class="com.bootcamp.restro.Tea"/>
+
+
+    <bean name="teaRestaurant" class="com.bootcamp.restro.Restaurant">
+        <property name="hotDrink" ref="expressTea"/>
+    </bean>
+
+    <!--Inner Bean-->
+    <bean id="expressTeaRestaurant" class="com.bootcamp.restro.Restaurant">
+        <property name="hotDrink">
+            <bean id="expressTea" class="com.bootcamp.restro.ExpressTea"/>
+            <!-- <bean id="tea" class="com.bootcamp.restro.Tea"/>-->
+        </property>
+    </bean>
+</beans>

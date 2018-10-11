@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--Using Autowired byName-->
+
+    <bean id="restaurant" class="com.bootcamp.restro.Restaurant" autowire="byName"/>
+    <alias name="tea" alias="hotDrink" />
+    <bean id="tea" class="com.bootcamp.restro.Tea"></bean>
+
+   <!-- <bean id="expressTea" class="com.bootcamp.restro.ExpressTea"></bean>-->
+
+    <!--Using Autowired byType-->
+    <bean id="restaurant1" class="com.bootcamp.restro.Restaurant" autowire="byType" />
+
+    <!--Using Autowired constructor-->
+    <!--<bean id="tea" class="com.bootcamp.restro.Tea"/>
+    <bean id="restaurant" class="com.bootcamp.restro.Restaurant" autowire="constructor">
+        <constructor-arg ref="tea"/>
+    </bean>-->
+
+</beans>
