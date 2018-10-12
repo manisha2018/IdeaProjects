@@ -9,7 +9,8 @@ public class RestaurantMain {
         Restaurant restaurant = applicationContext.getBean(Restaurant.class);
         restaurant.getHotDrink().prepareHotDrink();
 
-        Restaurant restaurant1 = applicationContext.getBean(Restaurant.class);
+//        Restaurant restaurant1 = applicationContext.getBean(Restaurant.class);
+//        restaurant1.getHotDrink().prepareHotDrink();
 
     }
 }

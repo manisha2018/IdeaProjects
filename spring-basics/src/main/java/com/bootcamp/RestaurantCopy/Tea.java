@@ -1,16 +1,12 @@
 package com.bootcamp.RestaurantCopy;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class Tea implements HotDrink {
 
-    @Autowired
     private String teaType;
 
     public Tea() {
     }
 
-    @Autowired
     public Tea(String teaType) {
         this.teaType = teaType;
     }
@@ -19,7 +15,6 @@ public class Tea implements HotDrink {
         return teaType;
     }
 
-    @Autowired
     public void setTeaType(String teaType) {
         this.teaType = teaType;
     }

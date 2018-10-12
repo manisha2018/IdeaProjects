@@ -17,15 +17,17 @@ public class AnnotationConfig {
         return new Tea();
     }
 
-   /* @Bean
+    @Bean
     @Description("Provides the Express Tea class")
     public ExpressTea expressTea() {
         return new ExpressTea();
-    }*/
+    }
+
+
 
     @Bean
     @Description("Provides restaurant class ")
     public Restaurant restaurant(){
-        return new Restaurant(new Tea());
+        return new Restaurant(tea());
     }
 }
