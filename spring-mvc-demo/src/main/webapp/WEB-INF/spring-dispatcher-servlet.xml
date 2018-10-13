@@ -13,17 +13,19 @@
     <context:component-scan base-package="com.session.spring"/>
     <mvc:annotation-driven/>
 
-    <bean id="/student" class="com.session.spring.StudentController"/>
-    <bean id="/student/show.html" class="com.session.spring.StudentController"/>
+    <!--For Abstract Controller-->
+    <!--<bean id="/student" class="com.session.spring.StudentController"/>
+    <bean id="/student/show.html" class="com.session.spring.StudentController"/>-->
+
+    <!--For MultiAction Controller-->
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <bean class="com.session.spring.StudentController"/>
 
     <!--View Resolver-->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/" />
-           <!-- <value>/WEB-INF/</value>-->
-
-        <property name="suffix" value=".jsp" />
-           <!-- <value>.jsp</value>-->
-
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 </beans>
