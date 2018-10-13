@@ -11,6 +11,9 @@
     <title>$Title$</title>
 </head>
 <body>
-${hello}
+========${"This is the JSP page"}=========
+<br>
+${heading}
+${msg}
 </body>
 </html>

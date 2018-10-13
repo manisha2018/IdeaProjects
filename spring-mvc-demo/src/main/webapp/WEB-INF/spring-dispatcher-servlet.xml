@@ -18,10 +18,10 @@
     <bean id="/student/show.html" class="com.session.spring.StudentController"/>-->
 
     <!--For MultiAction Controller-->
-    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+    <!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
-    <bean class="com.session.spring.StudentController"/>
-
+     <bean class="com.session.spring.StudentController"/>
+ -->
     <!--View Resolver-->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
