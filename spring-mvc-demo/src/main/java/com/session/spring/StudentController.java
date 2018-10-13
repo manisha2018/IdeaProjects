@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class StudentController extends AbstractController {
 
-    @RequestMapping("/show.html")
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
