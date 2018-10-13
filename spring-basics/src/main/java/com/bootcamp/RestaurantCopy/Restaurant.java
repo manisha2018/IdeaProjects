@@ -10,7 +10,7 @@ public class Restaurant {
 //    @Qualifier("tea")
     private HotDrink hotDrink;
 
-   // @Autowired
+    @Autowired
     public Restaurant(HotDrink hotDrink) {
         this.hotDrink = hotDrink;
     }
@@ -19,9 +19,9 @@ public class Restaurant {
         return hotDrink;
     }
 
-    @Autowired
-    @Qualifier("tea")
-   // @Required
+//    @Autowired
+//    @Qualifier("tea")
+    @Required
     public void setHotDrink(HotDrink hotDrink) {
         this.hotDrink = hotDrink;
     }

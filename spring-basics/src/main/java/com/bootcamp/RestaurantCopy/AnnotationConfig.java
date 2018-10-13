@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Description;
 @ComponentScan(basePackages = "com.bootcamp.RestaurantCopy")
 public class AnnotationConfig {
 
-    //private HotDrink hotDrink;
-
     @Bean
     @Description("Provides the Tea class")
     public Tea tea() {
@@ -22,8 +20,6 @@ public class AnnotationConfig {
     public ExpressTea expressTea() {
         return new ExpressTea();
     }
-
-
 
     @Bean
     @Description("Provides restaurant class ")
