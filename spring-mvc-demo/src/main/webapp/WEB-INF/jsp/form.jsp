@@ -14,15 +14,16 @@
 ${heading}
 <br>
 <%--<form action="/submit" method="post">--%>
-<form action="/submitform" method="post">
+<form action="/submitform.html" method="post">
+
     <label>FirstName</label>
     <%--<input name="firstName" type="text">--%>
-    <input name=${studentCo.firstName}>
-
+    <input type="text" name="firstName">
 
     <label>LastName</label>
     <%-- <input name="lastName" type="text">--%>
-    <input name=${studentCo.lastName}>
+    <input type="text" name=lastName>
+
     <input type="submit">
 </form>
 </body>

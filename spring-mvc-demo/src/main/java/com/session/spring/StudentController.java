@@ -13,6 +13,7 @@ import java.util.Map;
 //@RequestMapping("/student")
 public class StudentController {
 
+
     /*TODO:
     Use @ModelAttribute annotation to add Heading "Spring MVC Demo" in every model.
     * */
@@ -72,15 +73,9 @@ public class StudentController {
      * and access them.
      */
     @ResponseBody
-    @RequestMapping("/firstname/{firstName}")
-    public String returnFirstName(@PathVariable("firstName") String firstName) {
-        return firstName;
-    }
-
-    @RequestMapping("/lastname/{lastname}")
-    @ResponseBody
-    public String returnLastName(@PathVariable("lastname") String lastName) {
-        return lastName;
+    @RequestMapping("/dname/{firstName}/{lastName}")
+    public String dname(@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName) {
+        return firstName + lastName;
     }
 
     /*TODO:
@@ -98,6 +93,7 @@ public class StudentController {
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView form() {
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("form");
         return modelAndView;
@@ -113,11 +109,14 @@ public class StudentController {
     /*TODO:
     Create a StudentCO and bind firstname and lastname with instance
     variable of StudentCO.*/
-    @RequestMapping(value = "/submitform")
+    @RequestMapping(value = "/submitform",method = RequestMethod.POST)
     @ResponseBody
-    public String submit(StudentCO studentCO) {
+    public String  submit(StudentCO studentCO) {
+
+//        StudentCO studentCO1 = new StudentCO();
+
         return "FirstName:" + studentCO.getFirstName() + " " +
                 "LastName:" + studentCO.getLastName();
-    }
 
+    }
 }
