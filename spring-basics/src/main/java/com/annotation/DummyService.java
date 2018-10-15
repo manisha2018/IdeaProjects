@@ -11,6 +11,6 @@ public class DummyService {
 
     public Dummy writeName(){
         System.out.println("This is Service Class");
-        return dummyDao.writeName();
+        return dummyDao.entityName();
     }
 }

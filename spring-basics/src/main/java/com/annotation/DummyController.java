@@ -8,7 +8,8 @@ public class DummyController {
 
     @Autowired
     private DummyService dummyService;
-        public Dummy writeName(){
+
+        public Dummy getAllName(){
             System.out.println("This is Controller Class");
             return dummyService.writeName();
         }
