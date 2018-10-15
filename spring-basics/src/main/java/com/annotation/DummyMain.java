@@ -7,7 +7,7 @@ public class DummyMain {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(DummyConfig.class);
         DummyController dummyController = applicationContext.getBean(DummyController.class);
-        dummyController.getAllName();
+        System.out.println(dummyController.getAllName());
 
     }
 }
