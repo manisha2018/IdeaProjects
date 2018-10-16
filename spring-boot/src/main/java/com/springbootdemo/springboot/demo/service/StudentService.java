@@ -1,9 +1,9 @@
-package com.springbootdemo.springboot.student.service;
+package com.springbootdemo.springboot.demo.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.springbootdemo.springboot.student.entity.Student;
+import com.springbootdemo.springboot.demo.entity.Student;
 
 import java.util.Arrays;
 import java.util.List;

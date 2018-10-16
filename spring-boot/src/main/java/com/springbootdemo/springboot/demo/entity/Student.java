@@ -1,4 +1,4 @@
-package com.springbootdemo.springboot.student.entity;
+package com.springbootdemo.springboot.demo.entity;
 
 import org.springframework.stereotype.Component;
 

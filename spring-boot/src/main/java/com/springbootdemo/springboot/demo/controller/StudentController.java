@@ -1,8 +1,8 @@
-package com.springbootdemo.springboot.student.controller;
+package com.springbootdemo.springboot.demo.controller;
 
 
-import com.springbootdemo.springboot.student.entity.Student;
-import com.springbootdemo.springboot.student.service.StudentService;
+import com.springbootdemo.springboot.demo.entity.Student;
+import com.springbootdemo.springboot.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
