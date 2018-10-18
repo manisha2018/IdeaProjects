@@ -1,5 +1,6 @@
-package com.springbootdemo.springboot.demo.entity;
+package com.springbootdemo.springboot.demo.Listener;
 
+import com.springbootdemo.springboot.demo.entity.Student;
 import com.springbootdemo.springboot.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;

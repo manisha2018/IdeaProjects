@@ -14,11 +14,11 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-   private StudentService studentService;
+    private StudentService studentService;
 
     @GetMapping("/students")
     @ResponseBody
-    public List<Student> getStudents(){
+    public List<Student> getStudents() {
         return studentService.getStudents();
     }
 }
