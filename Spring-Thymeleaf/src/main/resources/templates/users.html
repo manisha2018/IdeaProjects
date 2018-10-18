@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Admin</td>
+        <td>Salary</td>
+    </tr>
+    <tr th:each="user:${users}" th:bgcolor="red" th:list="user">
+        <td th:text="${user.id}">1</td>
+        <td th:text="${user.name}">dewe</td>
+        <td th:text="${user.admin}">true</td>
+        <td th:text="${user.salary}">328638</td>
+    </tr>
+
+</table>
+<select>
+    <option th:each="role: ${T(com.springThymeleafdemo.SpringThymeleaf.Demo.enums.Role).valueOf()}">
+
+    </option>
+</select>
+</body>
+</html>
