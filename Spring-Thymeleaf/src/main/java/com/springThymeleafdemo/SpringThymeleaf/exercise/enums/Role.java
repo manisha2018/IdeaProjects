@@ -1,4 +1,4 @@
-package com.springThymeleafdemo.SpringThymeleaf.Demo.enums;
+package com.springThymeleafdemo.SpringThymeleaf.exercise.enums;
 
 public enum Role {
     SUPER_ADMIN("Super Admin"),

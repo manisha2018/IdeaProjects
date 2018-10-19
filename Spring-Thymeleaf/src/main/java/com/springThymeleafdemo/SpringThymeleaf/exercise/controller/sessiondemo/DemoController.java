@@ -1,4 +1,4 @@
-package com.springThymeleafdemo.SpringThymeleaf.Demo.controller;
+package com.springThymeleafdemo.SpringThymeleaf.exercise.controller.sessiondemo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

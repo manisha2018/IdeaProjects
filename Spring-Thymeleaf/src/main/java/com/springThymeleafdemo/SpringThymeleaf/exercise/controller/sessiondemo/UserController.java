@@ -1,6 +1,5 @@
-package com.springThymeleafdemo.SpringThymeleaf.Demo.controller;
+package com.springThymeleafdemo.SpringThymeleaf.exercise.controller.sessiondemo;
 
-import com.springThymeleafdemo.SpringThymeleaf.Demo.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,4 @@
-package com.springThymeleafdemo.SpringThymeleaf.Demo.entity;
-
-import java.time.LocalDateTime;
+package com.springThymeleafdemo.SpringThymeleaf.exercise.controller.sessiondemo;
 
 public class User {
     private Long id;
