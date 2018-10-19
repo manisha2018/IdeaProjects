@@ -15,4 +15,10 @@
     <bean id="dummy" class="aop.DummyAop" />
     <bean class="aop.MyAspect" />
 
+    <bean id="student" class="aop.Question1.Student">
+        <property name="name" value="Superman"/>
+    </bean>
+    <bean id="studentservice" class="aop.Question1.StudentService">
+        <property name="student" ref="student"/>
+    </bean>
 </beans>

@@ -14,7 +14,7 @@ public class MyAspect {
     }
 
 
-    @AfterReturning(pointcut = "execution(Integer getInteger())", returning = "returnValue")
+    @AfterReturning(pointcut = "execution(Integer getNumber())", returning = "returnValue")
     void afterReturningAdvice(Integer returnValue) {
         System.out.println("Running AfterReturning " + returnValue);
     }

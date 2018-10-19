@@ -4,6 +4,7 @@ public class DummyAop {
     private Integer number;
 
     public Integer getNumber() {
+        System.out.println("This is dummy aop class");
         return 6;
     }
 

@@ -3,12 +3,13 @@ package com.exercise.event;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 
-public class Database implements ApplicationEventPublisherAware{
+public class Database implements ApplicationEventPublisherAware {
     private ApplicationEventPublisher applicationEventPublisher;
     private String name;
     private Integer Port;
 
     public String getName() {
+        System.out.println("This is getName method");
         return name;
     }
 
@@ -17,6 +18,7 @@ public class Database implements ApplicationEventPublisherAware{
     }
 
     public Integer getPort() {
+        System.out.println("This is getPort method");
         return Port;
     }
 
@@ -32,8 +34,8 @@ public class Database implements ApplicationEventPublisherAware{
                 '}';
     }
 
-    public void connect(){
-    //    System.out.println("connecting....");
+    public void connect() {
+        //    System.out.println("connecting....");
         CustomEvent customEvent = new CustomEvent(this);
         applicationEventPublisher.publishEvent(customEvent);
         System.out.println("Connecting");
@@ -44,7 +46,11 @@ public class Database implements ApplicationEventPublisherAware{
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
-    void display(){
+    void display() {
         System.out.println("This is the Database Class");
+    }
+
+    public String test(){
+        return "Test Method";
     }
 }
