@@ -7,13 +7,19 @@
     <link th:href="@{'/stylesheets/application.css'}" rel="stylesheet" />
 </head>
 <body>
+<header th:insert="layouts/index.html :: header"> </header>
 <div class="container">
+    <aside>
+        <h4>This is the side bar</h4>
+
+    </aside>
     <div>
         <button onclick="throwalert()">Click</button>
     </div>
     <div>
         <p>Hello to My world!!!!</p>
     </div>
+    <div th:replace="layouts/index.html :: footer"></div>
 </div>
 </body>
 </html>

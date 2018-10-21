@@ -1,4 +1,4 @@
-package com.springThymeleafdemo.SpringThymeleaf.exercise.controller.sessiondemo;
+package com.springThymeleafdemo.SpringThymeleaf.exercise.entity;
 
 public class User {
     private Long id;

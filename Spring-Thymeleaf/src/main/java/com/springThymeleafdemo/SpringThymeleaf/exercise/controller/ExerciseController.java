@@ -17,7 +17,7 @@ public class ExerciseController {
         return "layouts/exercise";
     }
 
-    @GetMapping("/employeeregister")
+    @GetMapping("/register")
     public String employeeRegister(Employee employee) {
         return "layouts/register";
     }
@@ -31,9 +31,22 @@ public class ExerciseController {
     }
 
     /*TODO:
-    * Show different custom greeting message based on the type of user. *//*
+     * Show different custom greeting message based on the type of user. *//*
     @PostMapping("/checkAdmin")
     public String checkAdmin(){
         return
     }*/
+
+    /*Adding Loader*/
+    @GetMapping("/loader")
+    public String register(Employee employee) {
+        return "layouts/loader";
+    }
+
+    //TODO:Make a web page to show server time using ajax call.
+    @GetMapping("/serverTime")
+    public String showServerTime() {
+        return "layouts/serverTime";
+    }
+
 }
