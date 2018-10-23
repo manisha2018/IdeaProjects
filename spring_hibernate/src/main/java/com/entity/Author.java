@@ -14,12 +14,20 @@ public class Author {
     @Column(name = "fname")
     private String firstName;
 
+    //TODO:7) Mark lastName as @Transient.
+    //Made the lname null with update mode.
+    //With Create Mode,No lname
+    @Transient
     @Column(name="lname")
     private String lastName;
 
     @Column(name="hasAge")
     private Integer age;
 
+    //TODO:8) Use @Temporal for date of birth of Author.
+    //Date format changed with update mode.
+    //With Create mode,only date is shown
+    @Temporal(TemporalType.DATE)
     @Column(name = "dateOfBirth")
     private Date dob;
 
