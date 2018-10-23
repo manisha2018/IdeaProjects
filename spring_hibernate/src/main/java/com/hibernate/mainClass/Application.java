@@ -1,4 +1,4 @@
-package com.hibernate.domain;
+package com.hibernate.mainClass;
 
 import com.entity.Author;
 import org.hibernate.Session;
