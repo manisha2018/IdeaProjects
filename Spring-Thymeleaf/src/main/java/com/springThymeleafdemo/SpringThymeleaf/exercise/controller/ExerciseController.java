@@ -3,6 +3,7 @@ package com.springThymeleafdemo.SpringThymeleaf.exercise.controller;
 import com.springThymeleafdemo.SpringThymeleaf.exercise.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -26,7 +27,11 @@ public class ExerciseController {
      Create a dynamic HTML page and render an Employee table
      with emp object return from the controller */
     @PostMapping("/employeesubmit")
-    public String getEmployeedetails(@ModelAttribute("employee") Employee employee) {
+    public String getEmployeedetails(@ModelAttribute("employee") Employee employee, Model model) {
+        System.out.println("-----------------------");
+        System.out.println(employee);
+        System.out.println("-----------------------");
+        //employee.setAdmin(true);
         return "layouts/employee";
     }
 

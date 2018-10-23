@@ -9,7 +9,8 @@ $('#test').click(function (e) {
     showLoader();
     $.ajax({
         type:"post",
-        url:"/ExerciseController/employeesubmit",
+        url:"/employeesubmit",
+
         success:function (data) {
             console.log("Response came from server",data);
         },

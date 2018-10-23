@@ -13,8 +13,8 @@
     <p>Name:<input type="text" th:field="*{name}"></p>
     <p>Age:<input type="text" th:field="*{age}"></p>
     <p>Salary:<input type="number" th:field="*{salary}"></p>
-    <!--<p>Admin:<input type="radio" th:field="*{isAdmin}" value="Yes">Yes</p>-->
-              <!--<input type="radio" th:field="*{isAdmin}" value="No">No</p>-->
+    <input type="radio" name="admin" th:field="*{admin}" value="true" >Yes<br>
+              <input type="radio" name="admin" th:field="*{admin}" value="false" >No<br>
     <input type="submit" value="Register">
 
 </form>

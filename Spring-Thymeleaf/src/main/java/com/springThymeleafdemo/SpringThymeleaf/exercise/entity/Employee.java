@@ -9,17 +9,17 @@ public class Employee {
     private String name;
     private Integer age;
     private Double salary;
-    private Boolean isAdmin;
+    private String admin;
 
     public Employee() {
     }
 
-    public Employee(Integer id, String name, Integer age, Double salary, Boolean isAdmin) {
+    public Employee(Integer id, String name, Integer age, Double salary, String admin) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.salary = salary;
-        this.isAdmin = isAdmin;
+        this.admin = admin;
     }
 
     public Integer getId() {
@@ -54,11 +54,22 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Boolean getAdmin() {
-        return isAdmin;
+    public String  getAdmin() {
+        return admin;
     }
 
-    public void setAdmin(Boolean admin) {
-        isAdmin = admin;
+    public void setAdmin(String admin) {
+        this.admin = admin;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", admin=" + admin +
+                '}';
     }
 }

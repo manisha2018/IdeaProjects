@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body >
-<!--th:with="${emp.isAdmin=${true}}"-->
+<!--th:with="${emp.admin=${true}}"-->
     <table>
         <tr>
             <td>Id</td>
@@ -18,10 +18,11 @@
             <td th:text="${emp.name}"></td>
             <td th:text="${emp.age}"></td>
             <td th:text="${emp.salary}"></td>
-            <!--<td>
-                <span th:if="${emp.isAdmin==}">Hello Admin</span>
-                <span th:unless="${emp.isAdmin}">You are not an admin</span>
-            </td>-->
+            <!--<td th:if="${emp.admin}">Hello Admin</td>-->
+            <td>
+                <span th:if="${emp.admin}">Hello Admin</span>
+                <span th:unless="${emp.admin}">You are not an admin</span>
+            </td>
 
         </tr>
     </table>

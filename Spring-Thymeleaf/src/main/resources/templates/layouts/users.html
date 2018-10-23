@@ -13,15 +13,11 @@
         <td>Admin</td>
         <td>Salary</td>
     </tr>
-    <tr th:each="user:${users}">
+    <tr th:each="user, iterStat:${users}"  th:style="${iterStat.odd}? 'background: #f0f0f2;' : 'background: #ffffff;'">
         <td th:text="${user.id}"></td>
         <td th:text="${user.name}"></td>
         <td th:text="${user.admin}"></td>
         <td th:text="${user.salary}"></td>
-    </tr>
-
-    <tr th:each="user, iterstat:${users}" th:style="${iterstat.odd}? 'background: #f0f0f2;' : 'background: #ffffff;'">
-        <!-- <td th:style="${users}?'color:pink;'"></td>-->
     </tr>
 
 <!--TODO:
