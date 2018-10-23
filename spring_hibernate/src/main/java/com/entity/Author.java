@@ -1,30 +1,37 @@
 package com.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Author {
 
+    /*TODO:6) Rename all the fields using column annotation.*/
     @Id
+    @Column(name = "authorId")
     private Integer Id;
+
+    @Column(name = "fname")
     private String firstName;
+
+    @Column(name="lname")
     private String lastName;
+
+    @Column(name="hasAge")
     private Integer age;
 
-    /*TODO:Use hbm2ddl create to introduce Date of Birth for Author.*/
+    @Column(name = "dateOfBirth")
     private Date dob;
 
     public Author() {
     }
 
-    public Author(Integer id, String firstName, String lastName, Integer age,Date dob) {
+    public Author(Integer id, String firstName, String lastName, Integer age, Date dob) {
         Id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.dob=dob;
+        this.dob = dob;
     }
 
     public Integer getId() {
