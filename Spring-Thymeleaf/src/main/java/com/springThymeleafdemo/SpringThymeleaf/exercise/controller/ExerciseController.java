@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/")
 public class ExerciseController {
@@ -54,4 +56,9 @@ public class ExerciseController {
         return "layouts/serverTime";
     }
 
+    @GetMapping("/currentTime")
+    @ResponseBody
+    public String currentTime(){
+        return LocalDateTime.now().toString();
+    }
 }
