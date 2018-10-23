@@ -19,11 +19,12 @@ public class Author {
     public Author() {
     }
 
-    public Author(Integer id, String firstName, String lastName, Integer age) {
+    public Author(Integer id, String firstName, String lastName, Integer age,Date dob) {
         Id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.dob=dob;
     }
 
     public Integer getId() {
@@ -56,6 +57,14 @@ public class Author {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
 
     @Override
