@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'spring_hibernate_bootcamp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.25'
+    compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: '5.3.7.Final'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
+    
+}
