@@ -23,6 +23,6 @@
 
         <!--Annotated entity class-->
         <mapping class="com.entity.Author"/>
-
+        <mapping class="com.entity.Book"/>
     </session-factory>
 </hibernate-configuration>

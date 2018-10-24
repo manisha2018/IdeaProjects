@@ -2,6 +2,7 @@ package com.hibernate.mainClass;
 
 import com.entity.Address;
 import com.entity.Author;
+import com.entity.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,6 +16,7 @@ public class Application {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         Address address=new Address();
+        Book book=new Book();
         for (int i = 11; i < 15; i++) {
             Author author = new Author("John" + i, "Snow" + i, 24 + i, new Date());
 
@@ -23,8 +25,11 @@ public class Application {
             address.setLocation("West Delhi"+i);
             author.setAddress(address);
             //TODO:13) Persist 3 subjects for each author.
-            author.setSubjects(Arrays.asList("Java","Algorithm","Data Structure"));
+          //  author.setSubjects(Arrays.asList("Java","Algorithm","Data Structure"));
+            book.setBookName("Meluha");
+            author.setBook(book);
             session.save(author);
+            session.save(book);
         }
         session.getTransaction().commit();
 
