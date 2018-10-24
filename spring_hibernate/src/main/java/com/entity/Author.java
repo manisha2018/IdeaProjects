@@ -1,7 +1,9 @@
 package com.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Author {
@@ -40,6 +42,11 @@ public class Author {
     // inside Author class and save it as embedded object.
     @Embedded
     private Address address;
+
+    //TODO:12) Introduce a List of subjects for author.
+    //Create another table as Author_subjects
+    @ElementCollection
+    List<String> subjects=new ArrayList<>();
 
     public Author() {
     }
@@ -89,6 +96,14 @@ public class Author {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public List<String> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<String> subjects) {
+        this.subjects = subjects;
     }
 
     @Override
