@@ -22,8 +22,8 @@ public class Application {
             address.setState("Delhi"+i);
             address.setLocation("West Delhi"+i);
             author.setAddress(address);
-
-            author.setSubjects(Arrays.asList("Java","Algorithm"));
+            //TODO:13) Persist 3 subjects for each author.
+            author.setSubjects(Arrays.asList("Java","Algorithm","Data Structure"));
             session.save(author);
         }
         session.getTransaction().commit();
