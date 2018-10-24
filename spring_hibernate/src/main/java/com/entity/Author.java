@@ -7,8 +7,11 @@ import java.util.Date;
 public class Author {
 
     /*TODO:6) Rename all the fields using column annotation.*/
+
+    /*TODO:9)Generate Id for Author Using IDENTITY and TABLE starategy.*/
     @Id
     @Column(name = "authorId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
     @Column(name = "fname")
@@ -18,10 +21,10 @@ public class Author {
     //Made the lname null with update mode.
     //With Create Mode,No lname
     @Transient
-    @Column(name="lname")
+    @Column(name = "lname")
     private String lastName;
 
-    @Column(name="hasAge")
+    @Column(name = "hasAge")
     private Integer age;
 
     //TODO:8) Use @Temporal for date of birth of Author.
@@ -31,23 +34,21 @@ public class Author {
     @Column(name = "dateOfBirth")
     private Date dob;
 
+
+    //TODO:11)
+    // Create instance variable of Address class
+    // inside Author class and save it as embedded object.
+    @Embedded
+    private Address address;
+
     public Author() {
     }
 
-    public Author(Integer id, String firstName, String lastName, Integer age, Date dob) {
-        Id = id;
+    public Author(String firstName, String lastName, Integer age, Date dob) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.dob = dob;
-    }
-
-    public Integer getId() {
-        return Id;
-    }
-
-    public void setId(Integer id) {
-        Id = id;
     }
 
     public String getFirstName() {
@@ -82,10 +83,17 @@ public class Author {
         this.dob = dob;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Author{" +
-                "Id=" + Id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
