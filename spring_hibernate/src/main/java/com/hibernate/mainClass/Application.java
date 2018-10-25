@@ -15,23 +15,40 @@ public class Application {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Address address=new Address();
-        Book book=new Book();
-        for (int i = 11; i < 15; i++) {
-            Author author = new Author("John" + i, "Snow" + i, 24 + i, new Date());
 
-            address.setStreetNumber(22+i);
-            address.setState("Delhi"+i);
-            address.setLocation("West Delhi"+i);
+        for (int i = 1; i < 5; i++) {
+            Author author = new Author("John" + i, "Snow" + i, 24 + i, new Date());
+            Address address = new Address(33 + i, "Delhi" + i, "Rohini" + i);
             author.setAddress(address);
+
             //TODO:13) Persist 3 subjects for each author.
-          //  author.setSubjects(Arrays.asList("Java","Algorithm","Data Structure"));
-            book.setBookName("Meluha");
-            author.setBook(book);
+            author.setSubjects(Arrays.asList("Java", "Algorithm", "Data Structure"));
+
+            Book book1 = new Book();
+            book1.setBookName("Meluha");
+            Book book2 = new Book();
+            book2.setBookName("Alchemist");
+            Book book3 = new Book();
+            book3.setBookName("Harry Potter");
+
+
+            author.getBooks().add(book1);
+            author.getBooks().add(book2);
+            author.getBooks().add(book3);
+            // Set<Book> bookSet = new HashSet<>();
+//            bookSet.add(book1);
+//            bookSet.add(book2);
+//            bookSet.add(book3);
+            session.save(book1);
+            session.save(book2);
+            session.save(book3);
             session.save(author);
-            session.save(book);
+
+
         }
+
         session.getTransaction().commit();
+        // session.close();
 
     }
 }

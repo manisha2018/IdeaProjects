@@ -1,9 +1,7 @@
 package com.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 public class Author {
@@ -20,8 +18,10 @@ public class Author {
     private String firstName;
 
     //TODO:7) Mark lastName as @Transient.
-    //Made the lname null with update mode.
-    //With Create Mode,No lname
+    /*
+    Made the lname null with update mode.
+    With Create Mode,No lname
+    */
     @Transient
     @Column(name = "lname")
     private String lastName;
@@ -30,34 +30,31 @@ public class Author {
     private Integer age;
 
     //TODO:8) Use @Temporal for date of birth of Author.
-    //Date format changed with update mode.
-    //With Create mode,only date is shown
+    /*
+    Date format changed with update mode.
+    With Create mode,only date is shown
+    */
     @Temporal(TemporalType.DATE)
     @Column(name = "dateOfBirth")
     private Date dob;
 
 
-    //TODO:11)
-    // Create instance variable of Address class
-    // inside Author class and save it as embedded object.
+    /* TODO:
+    Create instance variable of Address class
+     inside Author class and save it as embedded object.
+     */
     @Embedded
     private Address address;
 
-    //TODO:12) Introduce a List of subjects for author.
-    //Create another table as Author_subjects
+    /*
+    TODO:12) Introduce a List of subjects for author.
+    Create another table as Author_subjects
+    */
     @ElementCollection
-    List<String> subjects=new ArrayList<>();
+    List<String> subjects = new ArrayList<>();
 
-    @OneToOne
-    private Book book;
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
+    @OneToMany
+    private Set<Book> books=new HashSet<Book>();
 
     public Author() {
     }
@@ -115,6 +112,14 @@ public class Author {
 
     public void setSubjects(List<String> subjects) {
         this.subjects = subjects;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 
     @Override

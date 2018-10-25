@@ -4,11 +4,23 @@ instance variables streetNumber, location, State.*/
 
 package com.entity;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Address {
 
     private Integer streetNumber;
     private String location;
     private String state;
+
+    public Address() {
+    }
+
+    public Address(Integer streetNumber, String location, String state) {
+        this.streetNumber = streetNumber;
+        this.location = location;
+        this.state = state;
+    }
 
     public Integer getStreetNumber() {
         return streetNumber;
