@@ -9,6 +9,8 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Application {
     public static void main(String[] args) {
@@ -30,23 +32,13 @@ public class Application {
             book2.setBookName("Alchemist");
             Book book3 = new Book();
             book3.setBookName("Harry Potter");
+            Set<Book> books = new HashSet<>();
+            books.add(book1);
+            books.add(book2);
+            books.add(book3);
 
-
-            author.getBooks().add(book1);
-            author.getBooks().add(book2);
-            author.getBooks().add(book3);
-//              Set<Book> bookSet = new HashSet<>();
-//            bookSet.add(book1);
-//            bookSet.add(book2);
-//            bookSet.add(book3);
-
-            /*One to Many Bidirectional*/
-            book1.setAuthor(author);
-            book2.setAuthor(author);
-            session.save(book1);
-            session.save(book2);
-            session.save(book3);
-            session.save(author);
+            author.setBooks(books);
+            session.persist(author);
         }
         session.getTransaction().commit();
         session.close();

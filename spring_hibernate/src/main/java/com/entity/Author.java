@@ -11,7 +11,7 @@ public class Author {
     /*TODO:9)Generate Id for Author Using IDENTITY and TABLE starategy.*/
     @Id
     @Column(name = "authorId")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer Id;
 
     @Column(name = "fname")
@@ -53,7 +53,7 @@ public class Author {
     @ElementCollection
     List<String> subjects = new ArrayList<>();
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(cascade = CascadeType.PERSIST)
     private Set<Book> books=new HashSet<Book>();
 
     public Author() {
