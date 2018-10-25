@@ -7,10 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -32,13 +29,13 @@ public class Application {
             book2.setBookName("Alchemist");
             Book book3 = new Book();
             book3.setBookName("Harry Potter");
-            Set<Book> books = new HashSet<>();
+            List<Book> books = new ArrayList<>();
             books.add(book1);
             books.add(book2);
             books.add(book3);
 
             author.setBooks(books);
-            session.persist(author);
+            session.save(author);
         }
         session.getTransaction().commit();
         session.close();

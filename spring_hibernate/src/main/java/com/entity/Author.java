@@ -53,8 +53,8 @@ public class Author {
     @ElementCollection
     List<String> subjects = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private Set<Book> books=new HashSet<Book>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Book> books=new ArrayList<>();
 
     public Author() {
     }
@@ -114,11 +114,11 @@ public class Author {
         this.subjects = subjects;
     }
 
-    public Set<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 

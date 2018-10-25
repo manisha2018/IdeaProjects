@@ -2,6 +2,8 @@
 package com.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -11,8 +13,9 @@ public class Book {
     private Integer id;
     private String bookName;
 
-    @ManyToOne
-    private Author author;
+    @ManyToMany
+    private List<Author> authors = new ArrayList<>();
+
 
     public String getBookName() {
         return bookName;
@@ -22,12 +25,12 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public Author getAuthor() {
-        return author;
+    public List<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     @Override
