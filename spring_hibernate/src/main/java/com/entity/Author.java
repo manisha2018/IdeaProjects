@@ -53,9 +53,7 @@ public class Author {
     @ElementCollection
     List<String> subjects = new ArrayList<>();
 
-    @OneToMany
-    @JoinTable(joinColumns = @JoinColumn(name = "AUTHOR_ID")
-    ,inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
+    @OneToMany(mappedBy = "author")
     private Set<Book> books=new HashSet<Book>();
 
     public Author() {
