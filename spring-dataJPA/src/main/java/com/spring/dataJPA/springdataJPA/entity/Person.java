@@ -1,17 +1,19 @@
 package com.spring.dataJPA.springdataJPA.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Person {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "person_id")
     private Integer id;
+
+    @Column(name = "firstname")
     private String firstName;
+
+    @Column(name = "lastname")
     private String lastName;
     private Integer salary;
     private Integer age;
@@ -19,7 +21,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(Integer id,String firstName, String lastName, Integer salary, Integer age) {
+    public Person(String firstName, String lastName, Integer salary, Integer age) {
         this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
