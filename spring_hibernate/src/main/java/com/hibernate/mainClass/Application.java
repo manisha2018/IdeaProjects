@@ -9,6 +9,8 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Application {
     public static void main(String[] args) {
@@ -39,16 +41,16 @@ public class Application {
 //            bookSet.add(book1);
 //            bookSet.add(book2);
 //            bookSet.add(book3);
+
+            /*One to Many Bidirectional*/
+            book1.setAuthor(author);
+            book2.setAuthor(author);
             session.save(book1);
             session.save(book2);
             session.save(book3);
             session.save(author);
-
-
         }
-
         session.getTransaction().commit();
-        // session.close();
-
+        session.close();
     }
 }

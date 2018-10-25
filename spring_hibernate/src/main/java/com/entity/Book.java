@@ -11,12 +11,23 @@ public class Book {
     private Integer id;
     private String bookName;
 
+    @ManyToOne
+    private Author author;
+
     public String getBookName() {
         return bookName;
     }
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     @Override
