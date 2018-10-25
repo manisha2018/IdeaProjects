@@ -29,20 +29,15 @@ public class ExerciseController {
      Create a dynamic HTML page and render an Employee table
      with emp object return from the controller */
     @PostMapping("/employeesubmit")
-    public String getEmployeedetails(@ModelAttribute("employee") Employee employee, Model model) {
+    public String getEmployeedetails(@ModelAttribute("employee") Employee employee) {
+
         System.out.println("-----------------------");
         System.out.println(employee);
         System.out.println("-----------------------");
         //employee.setAdmin(true);
+
         return "layouts/employee";
     }
-
-    /*TODO:
-     * Show different custom greeting message based on the type of user. *//*
-    @PostMapping("/checkAdmin")
-    public String checkAdmin(){
-        return
-    }*/
 
     /*Adding Loader*/
     @GetMapping("/loader")
@@ -58,7 +53,7 @@ public class ExerciseController {
 
     @GetMapping("/currentTime")
     @ResponseBody
-    public String currentTime(){
+    public String currentTime() {
         return LocalDateTime.now().toString();
     }
 }
