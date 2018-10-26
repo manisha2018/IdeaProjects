@@ -12,13 +12,14 @@
     <aop:aspectj-autoproxy/>
 
     <context:annotation-config/>
-    <bean id="dummy" class="aop.DummyAop" />
-    <bean class="aop.MyAspect" />
 
-    <bean id="student" class="aop.Question1.Student">
+
+    <bean id="student" class="aop.exercise.Student">
         <property name="name" value="Superman"/>
+        <property name="id" value="1"/>
+        <property name="competency" value="JVM"/>
     </bean>
-    <bean id="studentservice" class="aop.Question1.StudentService">
-        <property name="student" ref="student"/>
+    <bean id="studentaspect" class="aop.exercise.StudentAspect">
+
     </bean>
 </beans>
