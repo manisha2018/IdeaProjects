@@ -4,6 +4,7 @@ import com.spring.dataJPA.springdataJPA.entity.Person;
 import com.spring.dataJPA.springdataJPA.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,9 +19,9 @@ public class PersonService {
 
     public Person update() {
         Iterator<Person> iterator = personRepository.findAll().iterator();
-        if (!iterator.hasNext()) {
-            for (int i = 1; i < 5; i++) {
-                person = new Person("Peter", "Patt" + i, 22000 + i, 22 + i);
+        if (iterator.hasNext()) {
+            for (int i = 1; i < 8; i++) {
+                person = new Person("Manisha" + i, "Goyal" + i, 22000 + i, 22 + i);
                 personRepository.save(person);
             }
         }
@@ -56,15 +57,60 @@ public class PersonService {
         return personRepository.findByAge(age);
     }
 
-    public List<Person> getNames(Integer age){
+    public List<Person> getNames(Integer age) {
         return personRepository.findByAges(age);
     }
 
-    public List<Person> getAllDetailsOfPerson(Integer age){
+    public List<Person> getAllDetailsOfPerson(Integer age) {
         return personRepository.findAllByAge(age);
     }
 
-    public List<Person> countAllSameFirstName(String name){
+    public List<Person> countAllSameFirstName(String name) {
         return personRepository.countByName(name);
     }
+
+    public Integer countPersonById(Integer id) {
+        return personRepository.countById(id);
+    }
+
+    public Person getDistinct(String fname) {
+        return personRepository.findDistinctByFirstName(fname);
+    }
+
+    public List<Person> getByNameOrAge(String fname, Integer age) {
+        return personRepository.findByFirstNameOrAge(fname, age);
+    }
+
+    public List<Person> getByNameAndAge(String fname, Integer age) {
+        return personRepository.findByFirstNameAndAge(fname, age);
+    }
+
+    public List<Person> getByAgeBetween(Integer min, Integer max) {
+        return personRepository.findByAgeBetween(min, max);
+    }
+
+    public List<Person> getLessThanAge(Integer age) {
+        return personRepository.findByAgeLessThan(age);
+    }
+
+    public List<Person> getGreaterAge(Integer age) {
+        return personRepository.findByAgeGreaterThanEqual(age);
+    }
+
+    public List<Person> getByNameMatching(String fname) {
+        return personRepository.findByFirstNameLike(fname);
+    }
+
+    public List<Person> getByNotName(String fname) {
+        return personRepository.findByFirstNameNot(fname);
+    }
+
+    public List<Person> getByAgeIn(List<Integer> ageList) {
+        return personRepository.findByAgeIn(ageList);
+    }
+
+    public List<Person> getByIgnoreCase(String fname) {
+        return personRepository.findByFirstNameIgnoreCase(fname);
+    }
+
 }

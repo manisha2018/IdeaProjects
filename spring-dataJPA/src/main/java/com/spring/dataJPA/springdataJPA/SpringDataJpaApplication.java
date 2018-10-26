@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,32 +23,49 @@ public class SpringDataJpaApplication {
         PersonService personService = applicationContext.getBean(PersonService.class);
 
         //TODO:Perform all the methods inside CrudRepository for Person Class.
-        System.out.println(personService.update());
-        System.out.println(personService.read());
+//        System.out.println(personService.update());
+//        System.out.println(personService.read());
         // personService.delete();
 
-        /*TODO:For class Person find person declare methods in repository to
-         * TODO:find person by firstname, lastname and Id.*/
-        List<String> list = personService.getFirstName("First2");
-        System.out.println(list);
+//        /*TODO:For class Person find person declare methods in repository to
+//         * TODO:find person by firstname, lastname and Id.*/
+//        List<String> list = personService.getFirstName("First2");
+//        System.out.println(list);
+//
+//
+//        List<Person> list1 = personService.getLastName("Last2");
+//        System.out.println(list1);
+//
+//        Optional<Person> optionalPerson = personService.getId();
+//        System.out.println(optionalPerson);
+//
+//        /*TODO:Use @Query to fetch firstname of the Person whose age is 25.*/
+//        System.out.println(personService.fetchFirstNameUsingAge(25));
+//
+//        /*TODO:Use @Query to fetch firstname and lastname of the Person whose age is 25.*/
+//        System.out.println(personService.getNames(25));
+//
+//        /*TODO:Get complete information of the Employee whose age is 25 using @Query.*/
+//        System.out.println(personService.getAllDetailsOfPerson(25));
+//
+//        /*TODO:Count Person where name is "Peter" using @Query.*/
+//        System.out.println(personService.countAllSameFirstName("Peter"));
+
+        System.out.println(personService.countPersonById(1));
+        System.out.println(personService.getDistinct("Manisha1"));
+        System.out.println(personService.getByNameOrAge("Manisha7",29));
+        System.out.println(personService.getByNameAndAge("Manisha1",23));
+        System.out.println(personService.getByAgeBetween(22,27));
+        System.out.println(personService.getLessThanAge(26));
+        System.out.println(personService.getGreaterAge(24));
+        System.out.println(personService.getByNameMatching("Manisha5"));
+        System.out.println(personService.getByNotName("Peter"));
+
+        List<Integer> agelist= Arrays.asList(23,25,27);
+        System.out.println(personService.getByAgeIn(agelist));
+
+        System.out.println(personService.getByIgnoreCase("Manisha3"));
 
 
-        List<Person> list1 = personService.getLastName("Last2");
-        System.out.println(list1);
-
-        Optional<Person> optionalPerson = personService.getId();
-        System.out.println(optionalPerson);
-
-        /*TODO:Use @Query to fetch firstname of the Person whose age is 25.*/
-        System.out.println(personService.fetchFirstNameUsingAge(25));
-
-        /*TODO:Use @Query to fetch firstname and lastname of the Person whose age is 25.*/
-        System.out.println(personService.getNames(25));
-
-        /*TODO:Get complete information of the Employee whose age is 25 using @Query.*/
-        System.out.println(personService.getAllDetailsOfPerson(25));
-
-        /*TODO:Count Person where name is "Peter" using @Query.*/
-        System.out.println(personService.countAllSameFirstName("Peter"));
     }
 }
