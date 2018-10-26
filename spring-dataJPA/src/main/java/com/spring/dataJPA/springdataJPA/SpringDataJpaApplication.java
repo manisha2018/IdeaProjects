@@ -18,18 +18,11 @@ public class SpringDataJpaApplication {
         ApplicationContext applicationContext = SpringApplication.run(SpringDataJpaApplication.class, args);
         PersonService personService = applicationContext.getBean(PersonService.class);
 
-        //TODO:Perform all the methods inside CrudRepository for Person Class.
+//        TODO:Perform all the methods inside CrudRepository for Person Class.
 //        System.out.println(personService.update());
 //        System.out.println(personService.read());
-        // personService.delete();
+//        personService.delete();
 
-        /*JPA Specification*/
-
-        System.out.println(personService.findAllPerson());
-        System.out.println(personService.findPersonEqualsId());
-        System.out.println(personService.findAllPersonLessThanId());
-        System.out.println(personService.findAllPersonMatchingAndCondition());
-        System.out.println(personService.findAllPersonMatchingOrCondition());
-        System.out.println(personService.findAllPersonMatchingBetweenCondition());
+        System.out.println(personService.findPersonByAgeAndOrderByID(25));
     }
 }

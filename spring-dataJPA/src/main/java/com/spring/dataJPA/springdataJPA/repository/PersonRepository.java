@@ -68,8 +68,8 @@ public interface PersonRepository extends CrudRepository<Person, Integer>, JpaSp
 
     List<Person> findByFirstNameIgnoreCase(String name);
 
-
-
+    /*Get the persons greater than age 25 and sort them in descending order according to id by method query.*/
+    List<Person> findByAgeGreaterThanOrderByIdDesc(Integer age);
 
 
 }

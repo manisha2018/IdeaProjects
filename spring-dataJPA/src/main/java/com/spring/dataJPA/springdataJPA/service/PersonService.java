@@ -182,4 +182,8 @@ public class PersonService {
         };
         return personRepository.findAll(personSpecification);
     }
+
+    public List<Person> findPersonByAgeAndOrderByID(Integer age){
+        return personRepository.findByAgeGreaterThanOrderByIdDesc(age);
+    }
 }
