@@ -1,6 +1,9 @@
 package com.spring.dataJPA.springdataJPA.repository;
 
 import com.spring.dataJPA.springdataJPA.entity.Person;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -68,10 +71,14 @@ public interface PersonRepository extends CrudRepository<Person, Integer>, JpaSp
 
     List<Person> findByFirstNameIgnoreCase(String name);
 
-    /*Get the persons greater than age 25 and sort them in descending order according to id by method query.*/
+    /*TODO:Get the persons greater than age 25 and sort them in descending order according to id by method query.*/
     List<Person> findByAgeGreaterThanOrderByIdDesc(Integer age);
 
+    /*TODO:Do  the question above using the Sort class.*/
+    List<Person> findAll(Sort sort);
 
+    /*TODO:Apply Pagination on Person entities.*/
+    Page<Person> findAll(Pageable pageable);
 }
 
 

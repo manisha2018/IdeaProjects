@@ -23,6 +23,9 @@ public class SpringDataJpaApplication {
 //        System.out.println(personService.read());
 //        personService.delete();
 
-        System.out.println(personService.findPersonByAgeAndOrderByID(25));
+//        System.out.println(personService.findPersonByAgeAndOrderByID(25));
+//        System.out.println(personService.sort());
+
+        System.out.println(personService.findAllPersonUsingPage());
     }
 }

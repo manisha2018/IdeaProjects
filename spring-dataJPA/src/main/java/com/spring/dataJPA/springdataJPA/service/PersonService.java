@@ -3,6 +3,10 @@ package com.spring.dataJPA.springdataJPA.service;
 import com.spring.dataJPA.springdataJPA.entity.Person;
 import com.spring.dataJPA.springdataJPA.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -158,7 +162,7 @@ public class PersonService {
         Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
             Path path = root.get("id");
             Path path1 = root.get("firstName");
-            Predicate predicate = cb.and(cb.equal(path1,"Peter1"),cb.lt(path,7));
+            Predicate predicate = cb.and(cb.equal(path1, "Peter1"), cb.lt(path, 7));
             return predicate;
         };
         return personRepository.findAll(personSpecification);
@@ -168,22 +172,38 @@ public class PersonService {
         Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
             Path path = root.get("id");
             Path path1 = root.get("firstName");
-            Predicate predicate = cb.or(cb.equal(path1,"Peter1"),cb.lt(path,7));
+            Predicate predicate = cb.or(cb.equal(path1, "Peter1"), cb.lt(path, 7));
             return predicate;
         };
         return personRepository.findAll(personSpecification);
     }
+
     public List<Person> findAllPersonMatchingBetweenCondition() {
         Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
             Path path = root.get("id");
 
-            Predicate predicate = cb.between(path,1,4);
+            Predicate predicate = cb.between(path, 1, 4);
             return predicate;
         };
         return personRepository.findAll(personSpecification);
     }
 
-    public List<Person> findPersonByAgeAndOrderByID(Integer age){
+    /*TODO:Get the persons greater than age 25 and sort them in descending order according to id by method query.*/
+    public List<Person> findPersonByAgeAndOrderByID(Integer age) {
         return personRepository.findByAgeGreaterThanOrderByIdDesc(age);
+    }
+
+    /*TODO:Do  the question above using the Sort class.*/
+    public List<Person> sort() {
+        return personRepository.findAll(new Sort(Sort.Direction.DESC, "id")
+                .and(new Sort(Sort.Direction.ASC, "age")));
+
+    }
+
+    /*TODO:Apply Pagination on Person entities.*/
+    public List<Person> findAllPersonUsingPage() {
+        Page<Person> employeePage = personRepository.findAll(new PageRequest(1, 3, new Sort(Sort.Direction.DESC, "id")));
+        List<Person> employeeList = employeePage.getContent();
+        return employeeList;
     }
 }
