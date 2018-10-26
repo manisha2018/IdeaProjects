@@ -1,6 +1,7 @@
 package com.spring.dataJPA.springdataJPA.repository;
 
 import com.spring.dataJPA.springdataJPA.entity.Person;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -8,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface PersonRepository extends CrudRepository<Person, Integer> {
+public interface PersonRepository extends CrudRepository<Person, Integer>, JpaSpecificationExecutor<Person> {
 
     List<String> findByFirstName(String firstName);
 
@@ -67,16 +68,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
     List<Person> findByFirstNameIgnoreCase(String name);
 
-    /*TODO:
-    Use JPA Criteria API for following operations for person
 
-        equals
-        gt
-        lt
-        and
-        or
-        between
-    * */
 
 
 

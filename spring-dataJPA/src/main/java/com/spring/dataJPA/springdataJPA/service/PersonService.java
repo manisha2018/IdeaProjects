@@ -3,8 +3,10 @@ package com.spring.dataJPA.springdataJPA.service;
 import com.spring.dataJPA.springdataJPA.entity.Person;
 import com.spring.dataJPA.springdataJPA.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -113,4 +115,71 @@ public class PersonService {
         return personRepository.findByFirstNameIgnoreCase(fname);
     }
 
+    /*TODO: JPA Specification*/
+    /*TODO:
+    Use JPA Criteria API for following operations for person
+
+        equals
+        gt
+        lt
+        and
+        or
+        between
+    * */
+
+    public List<Person> findPersonEqualsId() {
+        Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
+            Path path = root.get("id");
+            Predicate predicate = cb.equal(path, 5);
+            return predicate;
+        };
+        return personRepository.findAll(personSpecification);
+    }
+
+    public List<Person> findAllPerson() {
+        Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
+            Path path = root.get("id");
+            Predicate predicate = cb.gt(path, 5);
+            return predicate;
+        };
+        return personRepository.findAll(personSpecification);
+    }
+
+    public List<Person> findAllPersonLessThanId() {
+        Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
+            Path path = root.get("id");
+            Predicate predicate = cb.lt(path, 5);
+            return predicate;
+        };
+        return personRepository.findAll(personSpecification);
+    }
+
+    public List<Person> findAllPersonMatchingAndCondition() {
+        Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
+            Path path = root.get("id");
+            Path path1 = root.get("firstName");
+            Predicate predicate = cb.and(cb.equal(path1,"Peter1"),cb.lt(path,7));
+            return predicate;
+        };
+        return personRepository.findAll(personSpecification);
+    }
+
+    public List<Person> findAllPersonMatchingOrCondition() {
+        Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
+            Path path = root.get("id");
+            Path path1 = root.get("firstName");
+            Predicate predicate = cb.or(cb.equal(path1,"Peter1"),cb.lt(path,7));
+            return predicate;
+        };
+        return personRepository.findAll(personSpecification);
+    }
+    public List<Person> findAllPersonMatchingBetweenCondition() {
+        Specification<Person> personSpecification = (Specification<Person>) (root, query, cb) -> {
+            Path path = root.get("id");
+
+            Predicate predicate = cb.between(path,1,4);
+            return predicate;
+        };
+        return personRepository.findAll(personSpecification);
+    }
 }
