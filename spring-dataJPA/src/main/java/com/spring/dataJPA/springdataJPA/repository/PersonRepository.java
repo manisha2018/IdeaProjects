@@ -75,7 +75,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer>, JpaSp
     List<Person> findByAgeGreaterThanOrderByIdDesc(Integer age);
 
     /*TODO:Do  the question above using the Sort class.*/
-    List<Person> findAll(Sort sort);
+    List<Person> findByAgeGreaterThan(Integer age, Sort sort);
 
     /*TODO:Apply Pagination on Person entities.*/
     Page<Person> findAll(Pageable pageable);

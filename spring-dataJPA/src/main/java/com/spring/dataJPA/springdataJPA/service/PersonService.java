@@ -194,9 +194,8 @@ public class PersonService {
     }
 
     /*TODO:Do  the question above using the Sort class.*/
-    public List<Person> sort() {
-        return personRepository.findAll(new Sort(Sort.Direction.DESC, "id")
-                .and(new Sort(Sort.Direction.ASC, "age")));
+    public List<Person> sort(Integer age) {
+        return personRepository.findByAgeGreaterThan(age,(new Sort(Sort.Direction.DESC, "id")));
 
     }
 

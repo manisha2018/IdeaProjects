@@ -23,9 +23,13 @@ public class SpringDataJpaApplication {
 //        System.out.println(personService.read());
 //        personService.delete();
 
-//        System.out.println(personService.findPersonByAgeAndOrderByID(25));
-//        System.out.println(personService.sort());
+        /*TODO:Get the persons greater than age 25 and sort them in descending order according to id by method query.*/
+        System.out.println(personService.findPersonByAgeAndOrderByID(25));
 
+        /*TODO:13) Do  the question above using the Sort class.*/
+        System.out.println(personService.sort(25));
+
+        /*TODO:14) Apply Pagination on Person entities.*/
         System.out.println(personService.findAllPersonUsingPage());
     }
 }
