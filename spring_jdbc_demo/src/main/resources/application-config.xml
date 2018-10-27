@@ -38,12 +38,45 @@
         <constructor-arg ref="driverManagerDataSource"/>
     </bean>
 
+    <!--Template Beans-->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="singleDataSource"/>
     </bean>
 
+    <bean id="namedParameter" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="singleDataSource"/>
+    </bean>
+
     <bean id="customJDBCTemplate" class="jdbc.CustomJDBCTemplate">
         <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="nameParameterDemo" class="jdbc.NamedParameterDemo">
+        <constructor-arg ref="namedParameter"/>
+    </bean>
+
+    <!--<bean id="user" class="jdbc.domain.User">
+        <constructor-arg name="id" value="4"/>
+        <constructor-arg name="userName" value="abc"/>
+        <constructor-arg name="password" value="xyz"/>
+        <constructor-arg name="age" value="44"/>
+        <constructor-arg name="salary" value="45000"/>
+        <constructor-arg name="dob" value="1992-12-12"/>
+    </bean>-->
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="singleDataSource"/>
+        <property name="packagesToScan" value="jdbc"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="hibernateExample" class="jdbc.HibernateExemple">
+        <constructor-arg ref="sessionFactory"/>
     </bean>
 
 </beans>

@@ -1,4 +1,4 @@
-//TODO:Use different connection mechanism to get Database connection
+//TODO:Q-1)Use different connection mechanism to get Database connection
 package jdbc;
 
 import com.mysql.jdbc.Driver;
