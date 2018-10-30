@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--<context:annotation-config/>-->
 
@@ -43,13 +43,15 @@
         <property name="dataSource" ref="singleDataSource"/>
     </bean>
 
+    <bean id="customJDBCTemplate" class="jdbc.CustomJDBCTemplate">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
     <bean id="namedParameter" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
         <constructor-arg ref="singleDataSource"/>
     </bean>
 
-    <bean id="customJDBCTemplate" class="jdbc.CustomJDBCTemplate">
-        <constructor-arg ref="jdbcTemplate"/>
-    </bean>
+
 
     <bean id="nameParameterDemo" class="jdbc.NamedParameterDemo">
         <constructor-arg ref="namedParameter"/>
@@ -78,5 +80,37 @@
     <bean id="hibernateExample" class="jdbc.HibernateExemple">
         <constructor-arg ref="sessionFactory"/>
     </bean>
+
+    <!--Question-4-->
+    <bean id="customerDAO" class="jdbc.Dao.CustomerDAOImpl">
+        <constructor-arg ref="driverManagerDataSource"></constructor-arg>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource"  ref="driverManagerDataSource" />
+    </bean>
+
+    <bean id="userServicePlatformTransaction" class="jdbc.Question4.UserServicePlatformTransaction">
+        <constructor-arg ref="transactionManager"/>
+    </bean>
+
+    <bean id="serviceImpl" class="jdbc.Question4.UserService">
+        <constructor-arg ref="transactionManager"/>
+    </bean>
+
+    <!--Question 5-->
+    <tx:annotation-driven proxy-target-class="true"
+                          transaction-manager="transactionManager" />
+
+    <bean id="employeeService" class="jdbc.Question5.EmployeeService">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <property name="employeeService2" ref="employeeService2"/>
+    </bean>
+
+    <bean id="employeeService2" class="jdbc.Question5.EmployeeService2">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+
+    </bean>
+
 
 </beans>
